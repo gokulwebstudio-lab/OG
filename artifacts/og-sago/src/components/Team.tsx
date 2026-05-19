@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 
 export function Team() {
   const members = [
-    { name: "Ganeshan", initial: "G", gradient: "var(--accent-cyan), var(--accent-blue)" },
-    { name: "Ganesh Raja Kumaran", initial: "GR", gradient: "var(--accent-orange), var(--accent-gold)" },
-    { name: "Gokul", initial: "GK", gradient: "var(--accent-blue), var(--accent-cyan)" },
-    { name: "Kutty Siva Kumar", initial: "KS", gradient: "var(--accent-gold), var(--accent-orange)" },
-    { name: "Siva Kumar", initial: "SK", gradient: "var(--accent-cyan), var(--accent-orange)" },
-    { name: "Mari Kamalesh", initial: "MK", gradient: "var(--accent-blue), var(--accent-gold)" },
-    { name: "Sukul", initial: "SU", gradient: "var(--accent-orange), var(--accent-blue)" },
+    { name: "Ganeshan", photo: "/member-ganeshan.png" },
+    { name: "Ganesh Raja Kumaran", photo: "/member-ganesh-raja-kumaran.png" },
+    { name: "Gokul", photo: "/member-gokul.png" },
+    { name: "Kutty Siva Kumar", photo: "/member-kutty-siva-kumar.png" },
+    { name: "Siva Kumar", photo: "/member-siva-kumar.png" },
+    { name: "Mari Kamalesh", photo: "/member-mari-kamalesh.png" },
+    { name: "Sukul", photo: "/member-sukul.png" },
   ];
 
   return (
@@ -31,15 +31,17 @@ export function Team() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-8 flex flex-col items-center justify-center group hover:scale-[1.03] transition-transform duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              className="glass-card rounded-2xl p-6 flex flex-col items-center justify-center group hover:scale-[1.03] transition-transform duration-300 hover:shadow-[0_0_24px_rgba(0,245,255,0.2)]"
             >
-              <div 
-                className="w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 shadow-lg group-hover:scale-110 transition-transform"
-                style={{ background: `linear-gradient(135deg, ${member.gradient})` }}
-              >
-                {member.initial}
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 ring-2 ring-[#00F5FF]/30 group-hover:ring-[#00F5FF]/70 transition-all shadow-lg group-hover:scale-105 duration-300">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-              <h3 className="text-xl font-poppins font-semibold text-white">{member.name}</h3>
+              <h3 className="text-base md:text-lg font-poppins font-semibold text-white text-center">{member.name}</h3>
             </motion.div>
           ))}
         </div>
