@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaYoutube, FaWhatsapp, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaYoutube, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 export function Community() {
   return (
@@ -14,14 +14,13 @@ export function Community() {
           viewport={{ once: true }}
           className="max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-baloo font-bold text-white mb-4">Join the OG Gang 🤝</h2>
+          <h2 className="text-4xl md:text-5xl font-baloo font-bold text-white mb-4">Join the OG Sago Gang 🤝</h2>
           <p className="text-[#A0ADB8] font-poppins text-lg md:text-xl mb-10">WhatsApp community for real ones only.</p>
 
           <div className="flex items-center justify-center gap-6 mb-12">
             <SocialIcon icon={<FaYoutube />} href="https://youtube.com/@ogsago" color="#FF0000" />
             <SocialIcon icon={<FaWhatsapp />} href="https://chat.whatsapp.com/E65qNuhS68NFacmpE8y3oS" color="#25D366" />
             <SocialIcon icon={<FaInstagram />} href="#" color="#E1306C" />
-            <SocialIcon icon={<FaTwitter />} href="#" color="#1DA1F2" />
           </div>
 
           <motion.a

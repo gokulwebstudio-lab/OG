@@ -53,7 +53,14 @@ export function StatsBar() {
               Subscribers
             </div>
           </div>
-          <Counter to={1000} label="Community" suffix="+" />
+          <div className="flex flex-col items-center justify-center p-4">
+            <div className="text-3xl md:text-4xl font-baloo font-bold text-[#00F5FF] mb-1">
+              Growing 🚀
+            </div>
+            <div className="text-sm md:text-base text-[#A0ADB8] font-medium uppercase tracking-wider">
+              Community
+            </div>
+          </div>
           <Counter to={100} label="Vibes" suffix="/100" />
         </div>
       </div>
