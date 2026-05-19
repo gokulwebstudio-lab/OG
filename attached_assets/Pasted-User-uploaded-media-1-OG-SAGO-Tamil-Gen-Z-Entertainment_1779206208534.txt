@@ -1,0 +1,363 @@
+User uploaded media 1
+# OG SAGO — Tamil Gen-Z Entertainment Brand Website
+
+## ROLE
+You are a senior creative developer. Build a complete,
+production-ready single-file HTML website.
+
+---
+
+## BRAND IDENTITY
+- Name: OG SAGO
+- Tagline: "Fun • Chill • Timepass"
+- Type: Tamil YouTube entertainment channel
+- Personality: Fun, chill, timepass, youthful, cinematic,
+  authentic friendship energy
+- Audience: Tamil Gen-Z (16–28)
+- Tone: Friendly, funny, real, slightly emotional
+- Primary Color: #00F5FF (neon cyan)
+- Theme: Dark, futuristic with glassmorphism effects
+- Font: Baloo 2 (headlines), Poppins (titles), Inter (body)
+  — all from Google Fonts
+
+---
+
+## REAL ASSETS (use exactly as provided)
+
+YouTube Channel: https://youtube.com/@ogsago
+WhatsApp Community: https://chat.whatsapp.com/E65qNuhS68NFacmpE8y3oS
+
+Featured Video ID: Kse8wO0J7Jc
+Short 1 ID: 1W5hfagrItw
+Short 2 ID: mCC9oYBNW5E
+Short 3 ID: MKbfFexvjqc
+
+Total videos on page: EXACTLY 4 (1 featured + 3 shorts)
+
+Video display method:
+- DO NOT use iframes
+- Use YouTube thumbnails as clickable cards:
+  https://img.youtube.com/vi/[VIDEO_ID]/maxresdefault.jpg
+- On click: open full YouTube URL in new tab
+- This eliminates embed failures entirely
+
+Thumbnail URLs to use:
+- Featured: https://img.youtube.com/vi/Kse8wO0J7Jc/maxresdefault.jpg
+  → links to: https://youtu.be/Kse8wO0J7Jc
+- Short 1: https://img.youtube.com/vi/1W5hfagrItw/maxresdefault.jpg
+  → links to: https://youtube.com/shorts/1W5hfagrItw
+- Short 2: https://img.youtube.com/vi/mCC9oYBNW5E/maxresdefault.jpg
+  → links to: https://youtube.com/shorts/mCC9oYBNW5E
+- Short 3: https://img.youtube.com/vi/MKbfFexvjqc/maxresdefault.jpg
+  → links to: https://youtube.com/shorts/MKbfFexvjqc
+
+Each video card must have:
+- Thumbnail as background (object-fit: cover)
+- 16/9 aspect ratio for featured
+- 9/16 aspect ratio for shorts
+- Centered play button overlay
+  (circular, var(--accent-orange), 
+   FontAwesome play icon, scale on hover)
+- Video title label below card
+- Hover: scale(1.03) + glow border
+
+Below all 4 cards:
+"View All Videos" button → https://youtube.com/@ogsago
+(outline style, centered)
+
+---
+
+## CSS CUSTOM PROPERTIES
+Declare in :root. Every color must use these variables.
+Never use raw hex values anywhere in the code.
+
+:root {
+  --bg-primary: #050A14;
+  --bg-secondary: #0A0A0A;
+  --accent-cyan: #00F5FF;
+  --accent-blue: #3B82F6;
+  --accent-orange: #FF6B2B;
+  --accent-gold: #FFD700;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0ADB8;
+  --glass-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.10);
+  --glow-cyan: 0 0 20px rgba(0,245,255,0.4);
+  --glow-orange: 0 0 20px rgba(255,107,43,0.4);
+  --transition-smooth: all 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+---
+
+## TECH STACK
+
+- Single HTML file (CSS + JS inline)
+- GSAP + ScrollTrigger (CDN)
+- Lenis smooth scroll (CDN)
+- Font Awesome 6 (CDN) — for icons
+- Google Fonts: Baloo 2, Inter, Poppins
+- Vanilla JS only — no React, no build tools
+
+---
+
+## PERFORMANCE RULES
+
+- Wrap all canvas animation in requestAnimationFrame
+- Add will-change: transform to all animated card elements
+- All GSAP ScrollTriggers: once: true
+- Respect prefers-reduced-motion:
+  @media (prefers-reduced-motion: reduce) {
+    disable particles, disable tilt,
+    reduce GSAP durations to 0.1s
+  }
+- Thumbnail images: loading="lazy"
+- No iframe embeds — thumbnails eliminate load failures
+
+---
+
+## PAGE SECTIONS (in order)
+
+### 1. NAV (fixed, glassmorphic)
+- Logo left: "OG SAGO" in Baloo 2, var(--accent-cyan) glow
+- Links centered: Videos, About, Team, Community
+- CTA right: "Subscribe" → https://youtube.com/@ogsago
+  (var(--accent-orange), pulse glow animation)
+- backdrop-filter: blur(16px) always on
+- JS: add class .scrolled after 50px scroll
+  (increases bg opacity slightly)
+- Mobile: hamburger → fullscreen overlay menu
+  (overlay bg: var(--bg-primary), links centered, large)
+
+### 2. HERO (100vh, fullscreen)
+- Headline: "Fun • Chill • Timepass"
+  GSAP word-by-word reveal, stagger 0.15s, starts at +0.3s
+- Sub: "Tamil-la comedy, chill vibes, real friendships
+  — OG Sago da 🔥"
+  Fade in after headline completes
+- 3 CTA buttons:
+  · Watch Videos → #videos (smooth scroll)
+  · Subscribe → https://youtube.com/@ogsago
+  · Join Community →
+    https://chat.whatsapp.com/E65qNuhS68NFacmpE8y3oS
+  Button style: first filled orange, others outline cyan
+  Hover: magnetic scale + glow
+- Background: animated mesh gradient + 60 particle canvas
+- Scroll indicator: bouncing arrow, 
+  JS fade out when scrollY > 100
+
+### 3. STATS BAR
+Animate counters once on ScrollTrigger entry.
+
+| Label | Value | Counter |
+|---|---|---|
+| Videos | 50+ | count 0→50, append + |
+| Subscribers | Growing 🚀 | static text, no counter |
+| Community | 1000+ | count 0→1000, append + |
+| Vibes | 100/100 | count 0→100, append /100 |
+
+Counter JS: duration 2s, easeOutExpo easing
+
+### 4. VIBES MARQUEE
+Infinite auto-scrolling horizontal banner.
+Two rows scrolling in opposite directions.
+
+Row 1 (left to right):
+Comedy 😂 • Friendship 🤝 • Timepass 😎 • Chill Vibes 🌊
+• Tamil Energy ⚡ • Real Moments 🎬 • Fun Always 🎉
+• No Script 🎯
+
+Row 2 (right to left):
+OG Gang 🔥 • Entertainment 🎭 • Authentic 💯
+• Gen-Z Culture 🚀 • Good Times ✨ • Tamil Nadu 🌟
+• Unfiltered 🎤 • Always Trending 📈
+
+Each item: glassmorphism pill, hover glow var(--accent-cyan)
+Animation: CSS infinite scroll keyframe, 
+pause on hover (animation-play-state: paused)
+
+### 5. VIDEOS (id="videos")
+Desktop layout:
+- Featured card: 60% width, left
+- 3 shorts cards: 40% width, right, stacked vertically
+
+Mobile layout:
+- Featured: full width
+- Shorts: stacked below, full width
+
+Use thumbnail method defined in REAL ASSETS above.
+"View All Videos" button below grid, centered, outline style.
+
+### 6. ABOUT (id="about")
+Two-column desktop, single column mobile.
+
+Left column:
+- Circular avatar placeholder (120px diameter)
+  Gradient: var(--accent-cyan) → var(--accent-blue)
+  Centered initials: "OS" in white, Baloo 2, 36px
+  Floating animation: translateY -8px→8px, 3s infinite
+  Note in code comment: 
+  /* Replace with <img> tag when profile photo is ready */
+
+Right column:
+- Heading: "Who is OG Sago?"
+- Copy (verbatim):
+  "OG Sago started as a bunch of friends who just wanted
+  to have fun on camera. No script. No filter. Just real
+  moments, Tamil vibes, and way too much timepass energy."
+
+  "We make the kind of content you watch when you want to
+  feel like you're just chilling with your best friends —
+  no agenda, no cringe, just pure entertainment."
+
+  "If you're looking for laughs, relatable moments, and
+  that feeling of hanging out with your crew —
+  you found the right channel da. 🔥"
+
+- Tags (pill style, glassmorphism):
+  Tamil Entertainment | Comedy | Friendship Vibes
+  | Gen-Z Content | Real & Unfiltered
+
+Below tags: 3 animated floating stat cards
+
+| Label | Value | Color |
+|---|---|---|
+| Fun Level | 100% | var(--accent-cyan) |
+| Chill Meter | 100% | var(--accent-blue) |
+| Timepass Index | 100% | var(--accent-orange) |
+
+Each: glassmorphism, progress bar fills on scroll entry,
+floating keyframe staggered 0s / 1s / 2s delay
+
+### 7. TEAM (id="team")
+Exactly 3 cards. Names only. No roles. No titles.
+
+JS data array:
+const members = [
+  { name: "Member 1", initial: "M",
+    gradient: "var(--accent-cyan), var(--accent-blue)" },
+  { name: "Member 2", initial: "M",
+    gradient: "var(--accent-orange), var(--accent-gold)" },
+  { name: "Member 3", initial: "M",
+    gradient: "var(--accent-blue), var(--accent-cyan)" }
+];
+
+Generate cards from array via JS loop.
+Owner updates name + initial in the array only.
+
+Each card:
+- Circular gradient avatar 80px, initials centered
+- Name below in Poppins 600
+- Glassmorphism card
+- Hover: tilt max 12deg + glow + scale(1.03)
+- Tilt disabled if ontouchstart in window
+
+### 8. COMMUNITY / SOCIAL (id="community")
+- Heading: "Join the OG Gang 🤝"
+- Sub: "WhatsApp community for real ones only."
+- Social icons row (circular glassmorphic buttons,
+  FontAwesome icons, hover glow):
+  · YouTube → https://youtube.com/@ogsago
+  · WhatsApp → https://chat.whatsapp.com/E65qNuhS68NFacmpE8y3oS
+  (add Instagram/Twitter slots with # href,
+   code comment: /* Add URL when available */)
+- Primary CTA: "Join WhatsApp Community"
+  → https://chat.whatsapp.com/E65qNuhS68NFacmpE8y3oS
+  var(--accent-orange), glow pulse
+- Background: animated gradient pulse keyframe, 6s infinite
+
+### 9. FOOTER
+- Logo: "OG SAGO" logo image was uploaded + tagline:
+  "Entertainment padikama paarunga 😂"
+- Nav links: Videos, About, Team, Community
+- YouTube icon → https://youtube.com/@ogsago
+  (FontAwesome, hover glow)
+- © 2025 OG Sago. All rights reserved.
+
+---
+
+## ANIMATIONS — COMPLETE SPECIFICATION
+
+| Element | Animation | Trigger | Duration | Ease |
+|---|---|---|---|---|
+| Hero headline | Word stagger reveal | Load +0.3s | 0.8s | expo.out |
+| Nav | Fade down | Load | 0.6s | power2.out |
+| Section titles | Slide up 30px + fade | ScrollTrigger | 0.7s | power2.out |
+| Video cards | Scale 0.95→1 + fade | ScrollTrigger | 0.6s | power2.out |
+| Stat counters | Count up | ScrollTrigger | 2s | easeOutExpo |
+| Progress bars | Width 0→100% | ScrollTrigger | 1.2s | power2.out |
+| Team cards | Stagger fade 0.15s | ScrollTrigger | 0.6s | power2.out |
+| Marquee | Infinite scroll | Continuous | 30s | linear |
+| CTA buttons | Glow pulse | Continuous | 2s | sine.inOut |
+| Cursor | Radial follow | mousemove | — | linear |
+| Particles | Float + drift | Continuous | — | linear |
+| Stat cards | translateY loop | Continuous | 3s | ease-in-out |
+| Avatar | translateY loop | Continuous | 3s | ease-in-out |
+
+All ScrollTriggers: start "top 80%", once: true
+GSAP defaults: gsap.defaults({ ease: "power2.out" })
+
+---
+
+## MOBILE BREAKPOINTS
+
+≤768px:
+- Hero: 40px headline, single column
+- Videos: featured full width, shorts stacked
+- About: single column, stat cards full width
+- Team: single column
+- Marquee: reduce font, keep scrolling
+- Tilt: disabled
+- Particles: reduce to 30
+- Nav: hamburger → fullscreen overlay
+
+≤480px:
+- Hero headline: 32px
+- Section titles: 24px
+- Reduce all padding 40%
+
+---
+
+## SEO / META
+
+Paste exactly in <head>:
+
+<meta charset="UTF-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+<title>OG Sago — Tamil Entertainment Channel</title>
+<meta name="description"
+  content="Fun, chill, timepass Tamil YouTube content.
+  Comedy, vibes, real friendships — OG Sago da.">
+<meta property="og:title" content="OG Sago">
+<meta property="og:description"
+  content="Tamil Gen-Z Entertainment — Fun • Chill • Timepass">
+<meta property="og:url"
+  content="https://youtube.com/@ogsago">
+<meta name="theme-color" content="#050A14">
+<link rel="canonical" href="https://youtube.com/@ogsago">
+
+---
+
+## CODE QUALITY RULES
+
+- Every section: <!-- SECTION: NAME --> comment
+- CSS variables only, never raw hex
+- Named JS functions:
+  initParticles(), initCursor(), initMarquee(),
+  initScrollAnimations(), initCounters(),
+  initTilt(), initNav(), renderTeamCards()
+- All called inside DOMContentLoaded
+- No inline styles except JS-driven dynamic values
+- All external links: target="_blank" rel="noopener"
+
+Pre-output mental checklist:
+· Exactly 4 thumbnail cards present?
+· All real URLs correctly placed?
+· Every JS function wired to its listener?
+· All colors using :root variables?
+· prefers-reduced-motion block present?
+· Marquee pauses on hover?
+· Tilt disabled on touch?
+· "View All Videos" button present?
+· Social icon slots present with comments?
+· Avatar has replacement comment?
