@@ -4,8 +4,8 @@ import { Play } from "lucide-react";
 export function Videos() {
   const featured = {
     url: "https://youtu.be/Kse8wO0J7Jc",
-    thumb: "https://img.youtube.com/vi/Kse8wO0J7Jc/maxresdefault.jpg",
-    title: "Latest Main Video"
+    thumb: "/featured-thumbnail.png",
+    title: "Thirukkurungudi Nambi Kovil — First Vlog"
   };
 
   const shorts = [
