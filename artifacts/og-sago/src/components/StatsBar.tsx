@@ -44,7 +44,7 @@ export function StatsBar() {
     <div className="w-full py-12 bg-[#0A0A0A] relative z-20 border-y border-white/5">
       <div className="container mx-auto px-4">
         <div className="glass-card rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <Counter to={50} label="Videos" suffix="+" />
+          <Counter to={4} label="Videos" suffix="" />
           <div className="flex flex-col items-center justify-center p-4">
             <div className="text-3xl md:text-4xl font-baloo font-bold text-[#00F5FF] mb-1">
               Growing 🚀

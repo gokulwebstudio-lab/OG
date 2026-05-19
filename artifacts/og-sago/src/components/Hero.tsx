@@ -68,6 +68,19 @@ export function Hero() {
       
       <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
         <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mb-8"
+        >
+          <img
+            src="/og-sago-logo.png"
+            alt="OG SAGO Logo"
+            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-[0_0_40px_rgba(0,245,255,0.35)] border-2 border-[#00F5FF]/30"
+          />
+        </motion.div>
+
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={{

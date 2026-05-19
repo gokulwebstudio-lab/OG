@@ -2,9 +2,13 @@ import { motion } from "framer-motion";
 
 export function Team() {
   const members = [
-    { name: "Member 1", initial: "M1", gradient: "var(--accent-cyan), var(--accent-blue)" },
-    { name: "Member 2", initial: "M2", gradient: "var(--accent-orange), var(--accent-gold)" },
-    { name: "Member 3", initial: "M3", gradient: "var(--accent-blue), var(--accent-cyan)" },
+    { name: "Ganeshan", initial: "G", gradient: "var(--accent-cyan), var(--accent-blue)" },
+    { name: "Ganesh Raja Kumaran", initial: "GR", gradient: "var(--accent-orange), var(--accent-gold)" },
+    { name: "Gokul", initial: "GK", gradient: "var(--accent-blue), var(--accent-cyan)" },
+    { name: "Kutty Siva Kumar", initial: "KS", gradient: "var(--accent-gold), var(--accent-orange)" },
+    { name: "Siva Kumar", initial: "SK", gradient: "var(--accent-cyan), var(--accent-orange)" },
+    { name: "Mari Kamalesh", initial: "MK", gradient: "var(--accent-blue), var(--accent-gold)" },
+    { name: "Sukul", initial: "SU", gradient: "var(--accent-orange), var(--accent-blue)" },
   ];
 
   return (
@@ -19,7 +23,7 @@ export function Team() {
           <h2 className="text-4xl md:text-5xl font-baloo font-bold text-white">The OG Gang</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
           {members.map((member, i) => (
             <motion.div
               key={i}
