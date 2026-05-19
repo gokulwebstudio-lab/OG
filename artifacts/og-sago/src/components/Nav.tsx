@@ -40,6 +40,7 @@ export function Nav() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
+            <button onClick={() => scrollTo("top")} className="text-sm font-medium hover:text-[#00F5FF] transition-colors">Home</button>
             <button onClick={() => scrollTo("videos")} className="text-sm font-medium hover:text-[#00F5FF] transition-colors">Videos</button>
             <button onClick={() => scrollTo("about")} className="text-sm font-medium hover:text-[#00F5FF] transition-colors">About</button>
             <button onClick={() => scrollTo("team")} className="text-sm font-medium hover:text-[#00F5FF] transition-colors">Team</button>
@@ -73,6 +74,7 @@ export function Nav() {
             <button className="absolute top-6 right-6 p-2" onClick={() => setMobileMenuOpen(false)}>
               <X className="w-8 h-8 text-white" />
             </button>
+            <button onClick={() => scrollTo("top")} className="text-3xl font-baloo font-bold hover:text-[#00F5FF]">Home</button>
             <button onClick={() => scrollTo("videos")} className="text-3xl font-baloo font-bold hover:text-[#00F5FF]">Videos</button>
             <button onClick={() => scrollTo("about")} className="text-3xl font-baloo font-bold hover:text-[#00F5FF]">About</button>
             <button onClick={() => scrollTo("team")} className="text-3xl font-baloo font-bold hover:text-[#00F5FF]">Team</button>
